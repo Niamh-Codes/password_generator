@@ -107,13 +107,13 @@ function getPasswordOptions() {
   var includeLowercase = confirm("Include lowercase characters?");
   var includeUppercase = confirm("Include uppercase characters?");
 
-  // Check if at least one character type is selected
+  // Check if udser had said yes
   if (!includeSpecial && !includeNumeric && !includeLowercase && !includeUppercase) {
     alert("Please select at least one character type.");
     return null;
   }
 
-  // Return an options
+  // Returns
   return {
     length: length,
     includeSpecial: includeSpecial,
@@ -157,7 +157,7 @@ function generatePassword() {
     allCharacters = allCharacters.concat(upperCasedCharacters);
     result.push(getRandom(upperCasedCharacters));
   }
-  for (var i = result.length; i < userInput.length; i++) {
+  for (var userInput = result.length; i < userInput.length; i++) {
     result.push(getRandom(allCharacters));
   }
   result = result.sort;
