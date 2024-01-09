@@ -123,6 +123,47 @@ function getPasswordOptions() {
   };
 }
 
+// Function for getting a random element from an array
+function getRandom(arr) {
+  var randomIndex = Math.floor(math.getRandom() * arr.length);
+  return arr[randomIndex];
+
+}
+
+// Function to generate password with user input
+function generatePassword() {
+  var userInput = getPasswordOptions();
+
+  if (!userInput) {
+    var allCharacters = [];
+    var result = [];
+
+  if (userInput.includeSpecial) {
+    allCharacters = allCharacters.concat(specialCharacters);
+    result.push(getRandom(specialCharacters));
+  }
+
+  if (userInput.includeNumeric) {
+    allCharacters = allCharacters.concat(numericCharacters);
+    result.push(getRandom(numericCharacters));
+  }
+
+  if (userInput.includeLowercase) {
+    allCharacters = allCharacters.concat(lowerCasedCharacters);
+    result.push(getRandom(lowerCasedCharacters));
+  }
+
+  if (userInput.includeUppercase) {
+    allCharacters = allCharacters.concat(upperCasedCharacters);
+    result.push(getRandom(upperCasedCharacters));
+  }
+  for (var i = result.length; i < userInput.length; i++) {
+    result.push(getRandom(allCharacters));
+  }
+  result = result.sort;
+  return result.join("");
+}
+}
 
 
 // Get references to the #generate element
